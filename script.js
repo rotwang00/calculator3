@@ -4,6 +4,10 @@
 let firstNumber = 0;
 let secondNumber = 0;
 let operator = '';
+let formula = '';
+
+// DOM variables
+let display = document.querySelector('.calculator-display');
 
 // Operations
 const add = function (a, b) {
@@ -41,7 +45,15 @@ const parse = function (expression) {
   let [a, o, b] = expression.split(' ');
   a = Number(a);
   b = Number(b);
-  console.log(operate(a, b, o));
+  let result = operate(a, b, o);
+  display.textContent = result;
 };
 
-parse('4 / 5');
+const buttons = document.querySelector('.calculator-functions');
+
+buttons.addEventListener('click', event => {
+  formula += event.target.value;
+  console.log(formula);
+});
+
+parse('56 + 64');
