@@ -1,0 +1,30 @@
+Formula Flow
+
+Format
+"AAAA operator BBBB"
+
+Flags
+Is empty
+In the midst of AAA
+Just added operator
+In the midst of BBB
+
+
+Previous entry was nothing (empty string)
+  Number: add to AAA; flag: in the midst of AAA
+  Anything else: ignore
+
+Previous entry was part of AAA:
+  Number: add to AAA
+  Operator other than =: Add "space operator space"; flag: just added operator
+  =: ignore
+
+Just added operator:
+  Number: add to BBB; flag: in the midst of BBB
+  Operator other than =: Modify the already present operator;
+  =: ignore
+
+In the midst of BBB:
+  Number: add to BBB
+  Operator other than =: ignore
+  =: clear flags; compute and display
